@@ -1,0 +1,23 @@
+body{
+     margin:0;
+     background-color:#009933;
+    font-family:cursive;
+}
+canvas#myCanvas{
+      background-color:#009933;
+}
+canvas#myCanvas1{
+      background-color:#009933;
+}
+div.before{
+      color:;
+      text-align:center;
+      font-size:25px;
+}
+button{
+      background-color:#000000;
+      color:#ffffff;
+      border:0;
+      padding:10px;
+      font-size:20px;
+}

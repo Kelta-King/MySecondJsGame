@@ -132,4 +132,15 @@ class Thing
                     return null;
 		        }
 		    }
-		    
+
+
+	//objects of games
+            
+            var bird = new Thing(bird_2,canvas.width,10);
+            var bow = new Thing(bow_1,10,canvas.height-500);
+            var arrow = new Thing(arrow_1,10,10);
+		    var gameSound= new sound(bg_music);
+		    var bow1 = new Thing(bow_1,10,10);
+            var arrow1 = new Thing(arrow_1,10,200);
+            var bird1 = new Thing(bird_1,canvas.width-150,10);
+    

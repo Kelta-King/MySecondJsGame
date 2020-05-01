@@ -134,7 +134,7 @@ class Thing
 		    }
 
 
-	//objects of games
+	//objects of game
             
             var bird = new Thing(bird_2,canvas.width,10);
             var bow = new Thing(bow_1,10,canvas.height-500);
@@ -143,4 +143,207 @@ class Thing
 		    var bow1 = new Thing(bow_1,10,10);
             var arrow1 = new Thing(arrow_1,10,200);
             var bird1 = new Thing(bird_1,canvas.width-150,10);
+
+	//functions of game
+            
+            
+            var a=0;
+            var g=0;
+            var angleInDegrees=-35;
+                
+            function anime()
+            {
+                if(m==1)
+                {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.drawImage(bird.img,bird.x,bird.y);
+                Draw.drawRotatedB(angleInDegrees, bow.img, canvas);
+                Draw.floor(flr.x,flr.y,flr.width,flr.height,'black');
+                Draw.drawRotatedA(angleInDegrees, arrow.img, canvas);
+                a++;
+                bird.x-=5;
+                
+                if(a>=30)
+                {
+                    a=0;
+                    g++;
+                    if(g%2==0)
+                    {
+                        bird.img.src=bird_1;
+                    }
+                    else
+                    {
+                        bird.img.src=bird_2;
+                    }
+                }
+                
+                if(bird.x<=-100)
+                {
+                    bird.x=canvas.width;
+                    bird.y=forRandom.rand();
+                    //console.log(bird.y);
+                }
+                }
+                
+            }
+            
+            var elem1=document.getElementById("f11");
+            
+            document.addEventListener('keydown', function(event) 
+            {
+                //Attack
+                if(event.keyCode==32 && en1 == 1 && arrs>0) 
+                {
+                    en1=0;
+                    att=30;
+                    bow1.img.src=bow_2;
+                    bow1.x=100;
+                }
+            });
+            function fullScreen()
+            {
+            	canvas.style.width=screen.width +"px";
+                canvas.style.height=screen.height + "px";
+                if (elem1.requestFullscreen) 
+		        {
+                    elem1.requestFullscreen();
+                }
+                else if (elem1.mozRequestFullScreen) 
+                { 
+                    /* Firefox */
+                    elem1.mozRequestFullScreen();
+                }
+                else if (elem1.webkitRequestFullscreen) 
+                { 
+                    /* Chrome, Safari & Opera */
+                    elem1.webkitRequestFullscreen();
+                }
+                else if (elem1.msRequestFullscreen) 
+                {   
+                    /* IE/Edge */
+                    elem1.msRequestFullscreen();
+                }
+                
+                document.body.style.backgroundColor = "white";
+                
+            }
+            var r;
+            function start()
+            {
+                m=1;
+                fullScreen();
+                document.getElementById("before").style.display="none";
+                document.getElementById("wallpaper").style.display="block";
+                document.getElementById("buttons").style.display="block";
+                document.getElementById("name").style.display="block";
+                gameSound.play();
+                document.body.style.backgroundColor = "white";
+                document.getElementById("back").style.display="none";
+                r=setInterval(anime,10);
+            }
+            var g;
+            function play()
+            {
+                m=0;
+                Scr.style.display="block";
+                Arrs.style.display="block";
+                gameSound.stop();
+                document.getElementById("buttons").style.display="none";
+                document.getElementById("name").style.display="none";
+                document.getElementById("back").style.display="block";
+                clearInterval(r);
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                g=setInterval(game,10);
+                
+            }
+            var b=0;
+            function game()
+            {
+                if(m==0)
+                {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.drawImage(bow1.img , bow1.x , bow1.y);
+                ctx.drawImage(arrow1.img , arrow1.x , arrow1.y, 350 ,15);
+                ctx.drawImage(bird1.img, bird1.x, bird1.y);
+                Scr.innerHTML="Score: "+score;
+                Arrs.innerHTML="Remaing Arrows: "+arrs;
+                a++;
+                if(a>=30)
+                {
+                    a=0;
+                    g++;
+                    if(g%2==0)
+                    {
+                        bird1.img.src=bird_1;
+                    }
+                    else
+                    {
+                        bird1.img.src=bird_2;
+                    }
+                }
+		        if(u>0)
+		        {
+			        bird1.y+=5;
+			        if(bird1.y>=700)
+			        {
+				        u=0;
+			        }
+		        }      
+		        else
+		        {
+			        bird1.y-=5;
+			        if(bird1.y<=100)
+			        {
+				        u=1;
+			        }
+		
+	        	}
+		
+	            if(en1==0)
+                {
+                    arrow1.x+=30;
+                    att--;
+			
+                }
+                if(att<=0)
+                {
+                    bow1.img.src=bow_1;
+                    bow1.x=10;
+                }
+                if(arrow1.x>canvas.width)
+                {
+                    arrow1.x=10;
+                    en1=1;
+                    b=0;
+                    arrs-=1;
+                }
+                if((arrow1.x+250)>=bird1.x && (arrow1.x+150)<=bird1.x && (arrow1.y+5)>bird1.y && (arrow1.y+5)<(bird1.y+103))
+                {
+			        bird1.img.src=bird_dead;
+			        yo=0;
+                    b++;
+                    if(b==1)
+                    {
+			        	score+=1;
+                    }
+                }
+                }
+            }
+            
+            function back()
+            {
+                m=1;
+				score=0;
+				arrs=10;
+                Scr.style.display="none";
+                Arrs.style.display="none";
+                document.getElementById("wallpaper").style.display="block";
+                document.getElementById("buttons").style.display="block";
+                document.getElementById("name").style.display="block";
+                gameSound.play();
+                document.getElementById("back").style.display="none";
+                clearInterval(g);
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                r=setInterval(anime,10);
+            }
     

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bow & Arrow</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="https://kelta-king.github.io/MySecondJsGame/index.css">
+	</head>
+	<body>
+	    <div class="before" id="before">
+	    <p>Game developed by KeltaKing...</p>
+	    <button onclick="start()" class="start">Start</button>
+	    </div>
+	    <div class="wallpaper" id="wallpaper">
+	        
+	    <center><button class='full' style="padding:5px; " onclick="fullScreen()">Enter Full Screen</button></center>
+        <div id="f11">
+            <h1 id='name'>BOW <BR>&<BR> ARROW</h1>
+        <div class="buttons" id='buttons'>
+        <button onclick="play()" class="play">Play</button>
+	        <button onclick="options()" class="options">Options</button>
+	        <a href="file:///C:/Users/kushang/Desktop/Games/GamePageLink.html"><button class="quit">Quit</button></a>
+            </div>
+            <button style="position:absolute;" id='back' onclick="back()">Back</button>
+		<canvas id="myCanvas" height="800px" width="1500px"></canvas>
+		<p style="position:absolute; left:100px; top:600px; font-weight:800; font-size:30px; display:none;" id="score">Score<br></p>
+		<p style="position:absolute; left:100px; top:700px; font-weight:800; font-size:30px; display:none;" id="arrows">Remaing arrows:<br></p>
+        </div>
+		</div>
+    <script src="https://kelta-king.github.io/MySecondJsGame/index.js"></script>
+		</body>
+    </html>
+		    
+		 

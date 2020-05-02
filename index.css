@@ -21,3 +21,32 @@ button{
       padding:10px;
       font-size:20px;
 }
+button.start{
+      font-size:22px;
+}
+button:hover{
+      font-size:25px;
+}
+button.full{
+      margin:10px;
+}
+button.full:hover{
+      margin:8px;
+}
+div.wallpaper{
+      display:none;
+}
+button.play,.options,.quit{
+     position:absolute;
+     max-width:200px;
+     padding-left:40px;
+     padding-right:40px;
+     font-size:30px;
+     transition:box-shadow 0.1s;
+}
+button.play:hover,.options:hover,.quit:hover{
+     padding-left:40px;
+     padding-right:40px;
+     font-size:30px;
+     box-shadow:0px 0px 5px 5px #003311;
+}

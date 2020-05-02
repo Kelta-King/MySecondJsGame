@@ -50,3 +50,24 @@ button.play:hover,.options:hover,.quit:hover{
      font-size:30px;
      box-shadow:0px 0px 5px 5px #003311;
 }
+.play{
+     top:350px;
+     left:45%;
+}
+.options{
+     top:420px;
+     left:43.6%;
+}		    
+.quit{
+     top:490px;
+     left:45%;
+}
+div.buttons{
+     text-align:center;
+}
+H1{
+     POSITION:ABSOLUTE;
+     left:70%;
+     top:200px;
+     font-size:100px;
+}

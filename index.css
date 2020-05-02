@@ -65,8 +65,8 @@ button.play:hover,.options:hover,.quit:hover{
 div.buttons{
      text-align:center;
 }
-H1{
-     POSITION:ABSOLUTE;
+h1{
+     position:absolute;
      left:70%;
      top:200px;
      font-size:100px;

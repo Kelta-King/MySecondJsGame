@@ -6,3 +6,4 @@
 Click on the start button and then the browser will switch to fullscreen mode. On that screen you will see a play button. Click on it.
 <br><b>Boom! Game begins...</b>
 </p>
+<img src="https://github.com/Kelta-King/MySecondJsGame/blob/master/img/Play.JPG">
